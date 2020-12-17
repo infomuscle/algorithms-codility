@@ -1,23 +1,38 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class MaxCounters {
 
     class Solution {
+
         public int[] solution(int N, int[] A) {
 
             int maxCounter = N + 1;
 
-            int[] answer = new int[N];
+            Map<Integer, Integer> map = new HashMap<>();
+            int totalMax = 0;
             int max = 0;
             for (int i = 0; i < A.length; i++) {
                 if (A[i] != maxCounter) {
-                    answer[A[i] - 1] += 1;
-                    if (answer[A[i] - 1] > max) {
-                        max = answer[A[i] - 1];
+                    if (map.get(A[i]) == null) {
+                        map.put(A[i], 0);
+                    }
+                    map.put(A[i], map.get(A[i]) + 1);
+
+                    if (map.get(A[i]) > max) {
+                        max = map.get(A[i]);
                     }
                 } else {
-                    for (int j = 0; j < N; j++) {
-                        answer[j] = max;
-                    }
+                    map = new HashMap<>();
+                    totalMax += max;
+                    max = 0;
                 }
+            }
+
+            int[] answer = new int[N];
+            for (int i = 0; i < N; i++) {
+                int adder = (map.get(i + 1) != null) ? map.get(i + 1) : 0;
+                answer[i] = totalMax + adder;
             }
 
             return answer;
