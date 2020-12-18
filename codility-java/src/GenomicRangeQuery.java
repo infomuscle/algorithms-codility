@@ -17,10 +17,10 @@ public class GenomicRangeQuery {
             factorMap.put('T', 4);
 
             Map<Character, List<Integer>> indexMap = new LinkedHashMap<>();
-            indexMap.put('T', new ArrayList<Integer>());
-            indexMap.put('G', new ArrayList<Integer>());
-            indexMap.put('C', new ArrayList<Integer>());
             indexMap.put('A', new ArrayList<Integer>());
+            indexMap.put('C', new ArrayList<Integer>());
+            indexMap.put('G', new ArrayList<Integer>());
+            indexMap.put('T', new ArrayList<Integer>());
 
             for (int i = 0; i < N; i++) {
                 indexMap.get(S.charAt(i)).add(i);
@@ -28,14 +28,24 @@ public class GenomicRangeQuery {
 
             for (int i = 0; i < M; i++) {
                 for (Character key : indexMap.keySet()) {
+                    boolean isIn = false;
                     for (Integer idx : indexMap.get(key)) {
                         if (idx >= P[i] && idx <= Q[i]) {
                             answer[i] = factorMap.get(key);
+                            isIn = true;
                             break;
                         }
                     }
+                    if (isIn) {
+                        break;
+                    }
                 }
             }
+
+//            for (int i = 0; i < answer.length; i++) {
+//                System.out.print(answer[i]);
+//            }
+//            System.out.println();
 
             return answer;
         }
