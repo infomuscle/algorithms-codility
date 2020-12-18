@@ -4,24 +4,21 @@ public class CountDiv {
         public int solution(int A, int B, int K) {
             int answer = 0;
 
-            if (A == 0) {
-                answer++;
-            }
-            if (K > B) {
-                return answer;
+            if (K == 1) {
+                return B - A + 1;
             }
 
-            int start = 0;
-            for (int i = K; i <= B; i += K) {
-                if (i >= A) {
+            int start = A;
+            for (int i = start; i <= B; i++) {
+                if (i % K == 0 && i >= A) {
                     start = i;
                     break;
                 }
             }
 
             for (long i = start; i <= B; i += K) {
-                if (i % K == 0) {
-                    answer++;
+                if (i % K == 0 && i <= B) {
+                    answer += 1;
                 }
             }
 
