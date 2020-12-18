@@ -4,8 +4,8 @@ public class CountDiv {
         public int solution(int A, int B, int K) {
             int answer = 0;
 
-            if (K == 1) {
-                return B - A + 1;
+            if (A == 0 && B == 0) {
+                return 1;
             }
 
             int start = A;
@@ -16,10 +16,16 @@ public class CountDiv {
                 }
             }
 
-            for (long i = start; i <= B; i += K) {
+            int end = B;
+            for (int i = end; i >= start; i--) {
                 if (i % K == 0 && i <= B) {
-                    answer += 1;
+                    end = i;
+                    break;
                 }
+            }
+
+            if (K <= end && start % K == 0) {
+                answer = (end - start) / K + 1;
             }
 
             return answer;
@@ -43,12 +49,16 @@ public class CountDiv {
         int k3 = 2000000000;
 
         int a4 = 0;
-        int b4 = 0;
+        int b4 = 1;
         int k4 = 1;
 
         int a5 = 10;
         int b5 = 10;
-        int k5 = 20;
+        int k5 = 5;
+
+        int a6 = 0;
+        int b6 = 2000000000;
+        int k6 = 1000000000;
 
 
         System.out.println(sol.solution(a1, b1, k1));
@@ -56,5 +66,6 @@ public class CountDiv {
         System.out.println(sol.solution(a3, b3, k3));
         System.out.println(sol.solution(a4, b4, k4));
         System.out.println(sol.solution(a5, b5, k5));
+        System.out.println(sol.solution(a6, b6, k6));
     }
 }
