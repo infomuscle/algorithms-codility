@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,20 +14,24 @@ public class GenomicRangeQuery {
             map.put("G", 3);
             map.put("T", 4);
 
-            int start;
-            int end;
             for (int i = 0; i < P.length; i++) {
-                start = P[i];
-                end = Q[i];
-
-                String[] queryBase = S.substring(start, end + 1).split("");
-
-                Arrays.sort(queryBase);
-
-                answer[i] = map.get(queryBase[0]);
+                String queryBase = S.substring(P[i], Q[i] + 1);
+                answer[i] = map.get(findMinimum(queryBase));
             }
 
             return answer;
+        }
+
+        private String findMinimum(String S) {
+            if (S.contains("A")) {
+                return "A";
+            } else if (S.contains("C")) {
+                return "C";
+            } else if (S.contains("G")) {
+                return "G";
+            } else {
+                return "T";
+            }
         }
     }
 
@@ -44,3 +47,9 @@ public class GenomicRangeQuery {
         System.out.println(sol.solution(s1, p1, q1));
     }
 }
+
+
+//            for (int i = 0; i < answer.length; i++) {
+//                System.out.print(answer[i]);
+//            }
+//            System.out.println();
