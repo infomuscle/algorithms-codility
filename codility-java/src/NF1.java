@@ -6,7 +6,7 @@ public class NF1 {
             int current_sum = 0;
             boolean positive = false;
             int n = S.length;
-            for (int i = 0; i < n; ++i) {
+            for (int i = 0; i < n; i++) {
                 int item = S[i];
                 if (item < 0) {
                     if (max_sum < current_sum) {
