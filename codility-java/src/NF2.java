@@ -13,8 +13,8 @@ public class NF2 {
                 if (A[m] > X) {
                     r = m - 1;
                 } else {
-                    if (A[m] == X){l = m;break;}
-                    else {l = m+1;}
+                    if (A[m] == X){l = m; break;}
+                    else {l = m + 1;}
                 }
             }
             if (A[l] == X) {
