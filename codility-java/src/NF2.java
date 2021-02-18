@@ -40,13 +40,14 @@ public class NF2 {
         Solution sol = new NF2().new Solution();
 
         int[] a1 = {1, 2, 5, 9, 9};
-        int[] a2 = {1, 2, 5, 9, 9, 10};
+        int[] a2 = {1, 2, 5, 7, 9, 9, 10};
         int x1 = 5;
         int x2 = 1;
         int x3 = 2;
-        int x4 = 9;
-        int x5 = 2000000000;
-        int x6 = -2000000000;
+        int x4 = 7;
+        int x5 = 9;
+        int x6 = 2000000000;
+        int x7 = -2000000000;
 
         System.out.println(sol.solution(a1, x1));
         System.out.println(sol.solution(a1, x2));
@@ -54,6 +55,7 @@ public class NF2 {
         System.out.println(sol.solution(a1, x4));
         System.out.println(sol.solution(a1, x5));
         System.out.println(sol.solution(a1, x6));
+        System.out.println(sol.solution(a1, x7));
         System.out.println();
         System.out.println(sol.solution(a2, x1));
         System.out.println(sol.solution(a2, x2));
@@ -61,5 +63,6 @@ public class NF2 {
         System.out.println(sol.solution(a2, x4));
         System.out.println(sol.solution(a2, x5));
         System.out.println(sol.solution(a2, x6));
+        System.out.println(sol.solution(a2, x7));
     }
 }
