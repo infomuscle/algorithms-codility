@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,28 +9,35 @@ public class NF1 {
 
             int len = S[0].length();
 
-            Map<Character, Map<Integer, Integer>> wordMap = new HashMap<>();
+            Map<Character, Map<Integer, ArrayList<Integer>>> wordMap = new HashMap<>();
             char ch;
             for (int i = 0; i < S.length; i++) {
                 for (int j = 0; j < len; j++) {
                     ch = S[i].charAt(j);
                     if (!wordMap.containsKey(ch)) {
-                        wordMap.put(ch, new HashMap<Integer, Integer>());
+                        wordMap.put(ch, new HashMap<Integer, ArrayList<Integer>>());
                     }
-                    wordMap.get(ch).put(i, j);
+                    if (!wordMap.get(ch).containsKey(j)) {
+                        wordMap.get(ch).put(j, new ArrayList<>());
+                    }
+                    wordMap.get(ch).get(j).add(i);
                 }
             }
 
-            System.out.println(wordMap);
-            for (Map m : wordMap.values()) {
-                System.out.println(m);
-
+            int[] answer = {};
+            for (Character chKey : wordMap.keySet()) {
+                for (Integer intKey : wordMap.get(chKey).keySet()) {
+                    if (wordMap.get(chKey).get(intKey).size() >= 2) {
+                        answer = new int[3];
+                        answer[0] = wordMap.get(chKey).get(intKey).get(0);
+                        answer[1] = wordMap.get(chKey).get(intKey).get(1);
+                        answer[2] = intKey;
+                        break;
+                    }
+                }
             }
 
-
-
-            int[] t = {};
-            return t;
+            return answer;
         }
     }
 
@@ -49,3 +57,14 @@ public class NF1 {
 
     }
 }
+
+//            System.out.println(wordMap);
+//            for (Map m : wordMap.values()) {
+//                System.out.println(m);
+//            }
+
+
+//            for (int i = 0; i < answer.length; i++) {
+//                System.out.print(answer[i]);
+//            }
+//            System.out.println();
