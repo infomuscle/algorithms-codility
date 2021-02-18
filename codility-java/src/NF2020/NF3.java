@@ -1,3 +1,5 @@
+package NF2020;
+
 import java.util.*;
 
 public class NF3 {

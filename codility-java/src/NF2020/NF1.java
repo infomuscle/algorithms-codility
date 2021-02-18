@@ -1,3 +1,5 @@
+package NF2020;
+
 public class NF1 {
 
     class Solution {
