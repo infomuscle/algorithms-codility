@@ -54,17 +54,5 @@ public class NF1 {
         System.out.println(sol.solution(s2));
         System.out.println(sol.solution(s3));
         System.out.println(sol.solution(s4));
-
     }
 }
-
-//            System.out.println(wordMap);
-//            for (Map m : wordMap.values()) {
-//                System.out.println(m);
-//            }
-
-
-//            for (int i = 0; i < answer.length; i++) {
-//                System.out.print(answer[i]);
-//            }
-//            System.out.println();

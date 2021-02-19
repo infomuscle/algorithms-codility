@@ -24,17 +24,6 @@ public class NF2 {
         }
     }
 
-
-    // l = 0, r = 4, m = 2, A[m] = 5, X = 2000000
-    // l = 2, r = 4, m = 3, A[m] = 9, X = 2000000
-    // l = 3, r = 4, m = 3, A[m] = 9, X = 1000000
-
-
-    // l = 0, r = 4, m = 2, A[m] = 5, X = 2
-    // l = 0, r = 1, m = 1
-
-
-
     public static void main(String[] args) {
 
         Solution sol = new NF2().new Solution();
