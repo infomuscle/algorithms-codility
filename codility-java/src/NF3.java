@@ -51,11 +51,13 @@ public class NF3 {
         int[] a3 = {1, 2, 3, -4};
         int[] a4 = {-1000000000, 1000000000};
         int[] a5 = {-2};
+        int[] a6 = {1, 2, 3, 4, 5, 6, 7};
 
         System.out.println(sol.solution(a1));
         System.out.println(sol.solution(a2));
         System.out.println(sol.solution(a3));
         System.out.println(sol.solution(a4));
         System.out.println(sol.solution(a5));
+        System.out.println(sol.solution(a6));
     }
 }
