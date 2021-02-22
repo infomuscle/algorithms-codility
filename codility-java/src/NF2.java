@@ -15,6 +15,7 @@ public class NF2 {
                 } else {
                     if (A[m] == X){l = m; break;}
                     else {l = m + 1;}
+                    // l = m + 1;이었던 걸로 기억(위의 두 줄 추가)
                 }
             }
             if (A[l] == X) {
