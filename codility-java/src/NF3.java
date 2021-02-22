@@ -10,6 +10,11 @@ public class NF3 {
             // A를 오름차순으로 정렬한다.
             Arrays.sort(A);
 
+            // 개선방안 1: 정렬한 A의 크기가 1이거나, 맨 앞의 원소가 음수가 아닐 경우 0 리턴
+            if (A.length == 1 || A[0] >= 0) {
+                return 0;
+            }
+
             // 정수 Key와 불 Value 포맷의 맵을 생성한다.
             Map<Integer, Boolean> nums = new HashMap<>();
 
